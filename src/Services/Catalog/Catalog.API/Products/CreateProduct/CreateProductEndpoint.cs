@@ -23,7 +23,5 @@ public class CreateProductEndpoint : ICarterModule
         .ProducesProblem(StatusCodes.Status400BadRequest)
         .WithSummary("Create Product")
         .WithDescription("Create Product");
-        
-        throw new NotImplementedException();
     }
 }
