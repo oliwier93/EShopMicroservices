@@ -3,6 +3,7 @@ global using FluentValidation;
 global using MediatR;
 global using Mapster;
 global using Marten;
+global using Marten.Pagination;
 
 global using BuildingBlocks.Behaviors;
 global using BuildingBlocks.CQRS;
