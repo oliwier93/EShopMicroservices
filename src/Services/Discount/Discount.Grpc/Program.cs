@@ -4,6 +4,20 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(8080, listenOptions =>
+    {
+        listenOptions.Protocols = Microsoft.AspNetCore.Server.Kestrel.Core.HttpProtocols.Http2;
+    });
+    
+    options.ListenAnyIP(8081, listenOptions =>
+    {
+        listenOptions.UseHttps("/home/app/.aspnet/https/discount.grpc.pfx", "mypassword");
+        listenOptions.Protocols = Microsoft.AspNetCore.Server.Kestrel.Core.HttpProtocols.Http2;
+    });
+});
+
 // Add services to the container.
 builder.Services.AddGrpc();
 builder.Services.AddGrpcReflection(); 

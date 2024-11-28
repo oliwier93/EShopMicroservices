@@ -20,4 +20,8 @@ RUN dotnet publish "Discount.Grpc.csproj" -c $BUILD_CONFIGURATION -o /app/publis
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+
+RUN dotnet dev-certs https -ep /home/app/.aspnet/https/discount.grpc.pfx -p mypassword
+RUN chmod 644 /home/app/.aspnet/https/discount.grpc.pfx
+
 ENTRYPOINT ["dotnet", "Discount.Grpc.dll"]
