@@ -1,6 +1,5 @@
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.Extensions.DependencyInjection;
+
 using Ordering.Domain.Enums;
 using Ordering.Domain.Models;
 using Ordering.Domain.ValueObjects;
