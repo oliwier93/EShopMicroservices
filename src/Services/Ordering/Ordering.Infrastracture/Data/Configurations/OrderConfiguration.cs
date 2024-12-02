@@ -117,5 +117,7 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
             .HasConversion(
                 s => s.ToString(),
                 dbStatus => (OrderStatus)Enum.Parse(typeof(OrderStatus), dbStatus));
+
+        builder.Property(o => o.TotalPrice);
     }
 }
