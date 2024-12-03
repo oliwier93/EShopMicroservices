@@ -8,6 +8,10 @@
   distributedcache:
     image: redis
     
+  orderdb:
+    image: mcr.microsoft.com/mssql/server
+    platform: linux/amd64
+    
   catalog.api:
     image: ${DOCKER_REGISTRY-}catalogapi
     build:
