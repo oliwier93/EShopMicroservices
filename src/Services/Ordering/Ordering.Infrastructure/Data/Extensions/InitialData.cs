@@ -1,4 +1,4 @@
-namespace Ordering.Infrastracture.Extensions;
+namespace Ordering.Infrastracture.Data.Extensions;
 
 internal class InitialData
 {
