@@ -20,7 +20,7 @@ public class CreateOrder : ICarterModule
                 return Results.Created($"/orders/{response.Id}", response);
             })
             .WithName("CreateOrder")
-            .Produces<CreateOrderResonse>(StatusCodes.Status201Created)
+            .Produces<CreateOrderResonse>(StatusCodes.Status200OK)
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .WithSummary("Create Order")
             .WithDescription("Create Order");
