@@ -14,7 +14,7 @@ public record OrderModel
 
 public record OrderItemModel(Guid OrderId, Guid ProductId, int Quantity, decimal Price);
 
-public record AddressModel(string FirstName, string LastName, string EmailAddress, string Country, string State, string ZipCode);
+public record AddressModel(string FirstName, string LastName, string EmailAddress, string AddressLine, string Country, string State, string ZipCode);
 
 public record PaymentModel(string CardName, string CardNumber, string Expiration, decimal Cvv, int PaymentMethod);
 
