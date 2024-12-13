@@ -33,6 +33,7 @@ public class ProductListModel(ICatalogService catalogService, IBasketService bas
     public async Task<IActionResult> OnPostAddToCartAsync(Guid productId)
     {
         logger.LogInformation("Add to cart button clicked");
+        
         var productResponse = await catalogService.GetProduct(productId);
 
         var basket = await basketService.LoadUserBasket();
