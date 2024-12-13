@@ -1,3 +1,5 @@
+using System.Net;
+
 namespace Shopping.Web.Services;
 
 public interface IBasketService
@@ -10,4 +12,26 @@ public interface IBasketService
     Task<DeleteBasketResponse> DeleteBasket(string userName);
     [Post("/basket-service/basket/checkout")]
     Task<CheckoutBasketResponse> CheckoutBasket(CheckoutBasketRequest request);
+    
+    public async Task<ShoppingCartModel> LoadUserBasket()
+    {
+        var userName = "andre";
+        ShoppingCartModel basket;
+
+        try
+        {
+            var getBasketResponse = await GetBasket(userName);
+            basket = getBasketResponse.Cart;
+        }
+        catch (ApiException apiException) when (apiException.StatusCode == HttpStatusCode.NotFound)
+        {
+            basket = new ShoppingCartModel
+            {
+                UserName = userName,
+                Items = []
+            };
+        }
+        
+        return basket;
+    }
 }
